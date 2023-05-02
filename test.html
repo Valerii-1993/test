@@ -1,331 +1,1309 @@
-<!DOCTYPE html><html lang="ru" class="add-scroll" data-scrapbook-source="https://betsportal.net/fWk98MsF?fb=153761194260742&amp;fbclid=IwAR0uuiVF9pUZMbSSLdzI_WifWyhgH7Af9_JBvqh75iu9osrDkRYBKuAURl4" data-scrapbook-create="20230317151306339"><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Сайт доктора Бубновского</title>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="google" content="nopagereadaloud"/>
+    <meta http-equiv="Cache-control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Гороскоп от Василисы Володиной</title>
+    <link rel="stylesheet" href="./static_l-3b/css/style.css"/>
+    <link rel="stylesheet" href="./static_l-3b/css/styles.css"/>
 
-    <link rel="stylesheet" href="style.css">
-    <link media="all" href="main.css" type="text/css" rel="stylesheet">
-    <link media="all" href="index.css" type="text/css" rel="stylesheet">
-    <script src="jquery.min.js"></script>
-    <link rel="stylesheet" href="generator.css">
+    <link rel="shortcut icon" type="image/png" href="./static_l-3b/favicon16.png" />
+    <link rel="shortcut icon" type="image/png" href="./static_l-3b/favicon32.png" />
+    <link rel="shortcut icon" type="image/png" href="./static_l-3b/favicon96.png" />
 
-    <style>
-        .cont {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            align-items: center;
-            border: 10px outset #dd1616;
-            background-color: rgba(216, 216, 216);
-            border-radius: 25px;
-            margin: 20px 0px;
-        }
-
-        .cont .left {
-            width: 50%;
-        }
-
-        .cont .left img {
-            width: 100%;
-        }
-
-        .cont .right {
-            width: 50%;
-        }
-
-        @media screen and (max-width: 768px) {
-            .cont .left {
-                width: 100%;
-            }
-
-            .cont .right {
-                width: 100%;
-            }
-        }
-    </style>
+<script type="text/javascript" src="add/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="add/js/date_random.2.05.js"></script>
 </head>
 
-<body cz-shortcut-listen="true" class="add-scroll">
-<script src="urn:scrapbook:download:error:https://pancreaspedia.com/lander/kostya-gialuronic-h10/counter.js"></script>
-<div class="main-desc b-show">
-    <div class="main-desc__img">
+<body>
+<?php
 
-    </div>
-    <div class="main-desc__body">
+// version 1.4
+$traffic_flow_id = isset($_GET['t6']) ? $_GET['t6'] : 47589;
+$lp_version = 'Монета-талисман/Талисман/form-P135-SP0/Л-3Б';
+$aff_name = 'omni';
+$object_flows = ['47825' => 'TE','47589' => 'GL','47449' => 'OR','46687' => 'PL', '46509' => 'PL','45382' => 'AD','44781' => 'RO','44749' => 'RA','44724' => 'RU','44607' => 'FA','44598' => 'BO','44566' => 'AV','44547' => 'AL','44545' => 'CO'];
 
-        <div class="main__title">
-            <p>Официальный онлай-чат</p>
-        </div>
-        <div class="main__name">
-            <p>Сергей Бубновский</p>
-        </div>
-    </div>
-</div>
+if(!empty($lp_version) && !empty($aff_name)) {
+    $query = $_GET;
+    if(!empty($query['lp_ver']) && !empty($query['lp_ver'])) {
+        if ($query['lp_ver'] !== $lp_version && $query['aff_name'] !== $aff_name) {
+            $query['lp_ver'] = $lp_version;
+            $query['aff_name'] = $aff_name;
+            $query_result = '?' . urldecode(http_build_query($query));
+            header("LOCATION: $query_result");
+        }
+    }
+}
 
-<div class="body" style="transform: translateY(0px);">
+function generate_country_code()
+{
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) { $ip= $_SERVER['HTTP_CLIENT_IP']; }
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) { $ip=$_SERVER['HTTP_X_FORWARDED_FOR']; }
+    else { $ip=$_SERVER['REMOTE_ADDR']; }
 
+    if (filter_var($ip, FILTER_VALIDATE_IP)) {
+        if(!empty(@json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip)))) {
+            $ipdat = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $ip));
+            $ipdat = $ipdat->geoplugin_countryCode;
+        }
+        elseif(!empty(@json_decode(file_get_contents("http://ip-api.com/json/{$ip}")))) {
+            $ipdat = @json_decode(file_get_contents("http://ip-api.com/json/{$ip}"));
+            $ipdat = $ipdat->countryCode;
+        }
+        if (@strlen(trim($ipdat)) == 2) {
+            return strtolower($ipdat);
+        }
+    }
+    return 'at';
+}
 
-    <div class="about dec">
-        <div class="about__avatar">
-            <img src="img/about-ava.jpg" alt="">
-        </div>
-        <div class="about__name">
-            <p>Сергей Бубновский</p>
-        </div>
-        <div class="about__info">
-            <ul>
-                <li>
-                    <p>Официальный онлай-чат</p>
-                </li>
-                <li>
-                    <p>Врач ревматолог</p>
-                </li>
-                <li>
-                    <p>Главврач клики "Ависена"</p>
-                </li>
-                <li>
-                    <p>Ведущий специалист Клиники ревматологии Национального медицинского университета города Москва</p>
-                </li>
-                <li>
-                    <p>Автор более 9 книг о здоровье суставов.</p>
-                </li>
-            </ul>
-        </div>
-        <div class="about__footer">
-            <p>© Официальная страница
-                <span>Сергей Бубновский
-        
-                </span>
-            </p>
-        </div>
-    </div>
-    <div class="content">
-        <div class="header">
-            <div class="header__body">
-                <div class="header__name">
-                    <div class="header__avatar">
-                        <img src="img/header-ava.jpg" alt="">
-                    </div>
-                    <div class="header__desc">
-                        <p><span>Доктор Бубновский</span></p>
-                        <p>Бесплатная консультация</p>
-                    </div>
-                </div>
-                <div class="header__online">
-                    <p>Online</p>
-                </div>
-            </div>
-        </div>
-        <div class="chat">
-            <div class="chat__time">
-                <p>сегодня</p>
-            </div>
-            <div class="chat-content-list">
+$country_code = generate_country_code();
+function generate_country_word($padej, $output_countryCode)
+{
+    $output = '';
+    if ($padej == 'n') { $output = 'ваша страна'; }
+    if ($padej == 'r') { $output = 'вашей страны'; }
+    if ($padej == 'd') { $output = 'вашей стране'; }
 
-            <!-- <div class="chat-content-item manager "><div class="chat-content-desc">
-                <div class="chat-content-desc-item manager"><p class="message-time" id="time">16:10</p>
-                    <p class="text" id="mass0">Добрый день, я доктор Сергей Михайлович Бубновский.</p>
-                </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:10</p>
-                    <p class="text" id="mass1">Я провожу онлайн-консультации в рамках проекта “Европа+”. Этот месяц посвящен борьбе с проблемами и заболеваниями суставов и позвоночника.
-                    </p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:10</p><p class="text" id="mass2">Если Вас беспокоят какие либо проблемы с суставами или спиной, сегодня я провожу бесплатные консультации.
-                    </p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:10</p>
-                        <p class="text" id="mass3">Чтобы определить точный масштаб проблемы, я хотел бы попросить Вас ответить на несколько простых вопросов.</p></div></div></div><div class="chat-content-item manager ">
-                            <div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:10</p>
-                                <p class="text" id="mass4">Сколько Вам лет?</p></div></div></div>
-                                <div class="chat-content-buttons-gender" style="display: none;"><div class="chat-content-buttons-gender-block">
-                                    <span class="question1M">до 30</span></div> <div class="chat-content-buttons-gender-block"><span class="question1W">30-40</span></div><div class="chat-content-buttons-gender-block "><span class="question1P">40-50</span></div><div class="chat-content-buttons-gender-block"><span class="question1K">50-60</span></div><div class="chat-content-buttons-gender-block"><span class="question1T">Старше 60</span></div></div><div class="chat-content-item user "><div class="chat-content-desc"><div class="chat-content-desc-item user"><p class="message-time" id="time">16:10</p><p class="text users_mass">До 30</p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:10</p><p class="text" id="mass5">Какие симптомы беспокоят вас больше всего?</p></div></div></div><div class="chat-content-buttons-gender" style="display: none;"><div class="chat-content-buttons-gender-block"><span class="question2M">Боль при сгибании конечностей</span></div><div class="chat-content-buttons-gender-block"><span class="question2W">Онемение пальцев</span></div><div class="chat-content-buttons-gender-block"><span class="question2P">Ревматоидные узелки</span></div><div class="chat-content-buttons-gender-block"><span class="question2T">Отек и покраснение сустава</span></div><div class="chat-content-buttons-gender-block"><span class="question2K">Утренняя скованность</span></div></div><div class="chat-content-item user "><div class="chat-content-desc"><div class="chat-content-desc-item user"><p class="message-time" id="time">16:11</p>
-                                            <p class="text" id="mass7">Как давно вас мучает эта проблема?</p></div></div></div><div class="chat-content-buttons-gender" style="display: none;"><div class="chat-content-buttons-gender-block"><span class="question4M">Меньше, чем год</span></div> <div class="chat-content-buttons-gender-block"><span class="question4W">1-3 года</span></div><div class="chat-content-buttons-gender-block ">
-                                                <span class="question4P">Больше 3 лет</span></div></div><div class="chat-content-item user "><div class="chat-content-desc"><div class="chat-content-desc-item user"><p class="message-time" id="time">16:11</p><p class="text users_mass">1-3 года</p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                    <p class="text" id="mass8">Спасибо за ответы.</p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                        <p class="text" id="mass9">Меня пугает, что вместо лечения суставов люди используют обезболивающие, которые лишь временно снимают боль, а потом приходится пользоваться инвалидной коляской!</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p><p class="text" id="mass10">Врачи вообще не заинтересованы в лечении людей, поэтому продолжают прописывать обезболивающие, которые не помогают.</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                        <p class="text" id="mass11">В то время лечение в частных клиниках или замена сустава стоит около 5 000 евро, к сожалению, такую ​​цену могут заплатить менее 3% наших соотечественников.</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                        <p class="text" id="mass12">Статистика заболеваний суставов в Европе действительно шокирует! Я не думаю, что это должно происходить в европейской стране.</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                        <p class="text" id="mass13">Поэтому этого совместно с моим фондом в Европе мы выделили пакет помощи в виде 25 000 упаковок революционного средства, что позволит моим соотечественникам, которые находятся в Европе еффективно боротся с заболеваниями суставов.</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                        <p class="text" id="mass14">Продукт подходит всем, так как имеет натуральный состав и не вреден для здоровья, поэтому действует эффективно и моментально!</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p><p class="text" id="mass15"><img class="center-image product-img" src="product.png" style="max-width: 60%;"></p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p>
-                                                        <p class="text" id="mass16">С первых дней применения FLEDOX снимает боли в спине и суставах, останавливая прогресс заболевания. Таким образом, за 4 недели приема препарата Вы избавитесь даже от самой тяжелой стадии остеоартроза или артрита раз и навсегда, забудете о болезни.</p>
-                                                    </div></div></div><div class="chat-content-item manager "><div class="chat-content-desc"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p><p class="text" id="mass17">Будьте здоровы </p></div></div></div><div class="chat-content-item manager "><div class="chat-content-desc" style="display: none;"><div class="chat-content-desc-item manager"><p class="message-time" id="time">16:11</p><p class="text" id="mass18"></p></div></div></div></div> -->
+    $output_countryCode = strtoupper($output_countryCode);
 
-            <button type="button" id="scroll_id" class="btn scroll-me hide aba" data-scroll="#down-box">
-          <span class="container-circle">
-            <span class="button-circle down"></span>
-          </span>
-            </button>
-            <input type="text" class="inp" id="res" value="0" readonly="">
-            <!-- /scroll -->
+    if ($padej == 'n') {
+        switch ($output_countryCode) {
+            case "AT":
+                $output = 'Австрия';
+                break;
+            case "BG":
+                $output = 'Болгария';
+                break;
+            case "HU":
+                $output = 'Венгрия';
+                break;
+            case "DE":
+                $output = 'Германия';
+                break;
+            case "GR":
+                $output = 'Греция';
+                break;
+            case "ES":
+                $output = 'Испания';
+                break;
+            case "IT":
+                $output = 'Италия';
+                break;
+            case "CY":
+                $output = 'Кипр';
+                break;
+            case "LV":
+                $output = 'Латвия';
+                break;
+            case "LT":
+                $output = 'Литва';
+                break;
+            case "PL":
+                $output = 'Польша';
+                break;
+            case "PT":
+                $output = 'Португалия';
+                break;
+            case "RO":
+                $output = 'Румыния';
+                break;
+            case "SK":
+                $output = 'Словакия';
+                break;
+            case "FR":
+                $output = 'Франция';
+                break;
+            case "HR":
+                $output = 'Хорватия';
+                break;
+            case "CZ":
+                $output = 'Чехия';
+                break;
+            case "EE":
+                $output = 'Эстония';
+                break;
+        }
+    }
+    if ($padej == 'r') {
+        switch ($output_countryCode) {
+            case "AT":
+                $output = 'Австрии';
+                break;
+            case "BG":
+                $output = 'Болгарии';
+                break;
+            case "HU":
+                $output = 'Венгрии';
+                break;
+            case "DE":
+                $output = 'Германии';
+                break;
+            case "GR":
+                $output = 'Греции';
+                break;
+            case "ES":
+                $output = 'Испании';
+                break;
+            case "IT":
+                $output = 'Италии';
+                break;
+            case "CY":
+                $output = 'Кипра';
+                break;
+            case "LV":
+                $output = 'Латвии';
+                break;
+            case "LT":
+                $output = 'Литвы';
+                break;
+            case "PL":
+                $output = 'Польши';
+                break;
+            case "PT":
+                $output = 'Португалии';
+                break;
+            case "RO":
+                $output = 'Румынии';
+                break;
+            case "SK":
+                $output = 'Словакии';
+                break;
+            case "FR":
+                $output = 'Франции';
+                break;
+            case "HR":
+                $output = 'Хорватии';
+                break;
+            case "CZ":
+                $output = 'Чехии';
+                break;
+            case "EE":
+                $output = 'Эстонии';
+                break;
+        }
+    }
+    if ($padej == 'd') {
+        switch ($output_countryCode) {
+            case "AT":
+                $output = 'Австрии';
+                break;
+            case "BG":
+                $output = 'Болгарии';
+                break;
+            case "HU":
+                $output = 'Венгрии';
+                break;
+            case "DE":
+                $output = 'Германии';
+                break;
+            case "GR":
+                $output = 'Греции';
+                break;
+            case "ES":
+                $output = 'Испании';
+                break;
+            case "IT":
+                $output = 'Италии';
+                break;
+            case "CY":
+                $output = 'Кипре';
+                break;
+            case "LV":
+                $output = 'Латвии';
+                break;
+            case "LT":
+                $output = 'Литве';
+                break;
+            case "PL":
+                $output = 'Польше';
+                break;
+            case "PT":
+                $output = 'Португалии';
+                break;
+            case "RO":
+                $output = 'Румынии';
+                break;
+            case "SK":
+                $output = 'Словакии';
+                break;
+            case "FR":
+                $output = 'Франции';
+                break;
+            case "HR":
+                $output = 'Хорватии';
+                break;
+            case "CZ":
+                $output = 'Чехии';
+                break;
+            case "EE":
+                $output = 'Эстонии';
+                break;
+        }
+    }
+    return $output;
+}
 
+$country_word_r = generate_country_word('r', $country_code);
+$country_word_n = generate_country_word('n', $country_code);
+$country_word_d = generate_country_word('d', $country_code);
 
-            <!-- <div class="iframe-form show" id="order_form">
+$work_dir = basename(__DIR__);
+$work_file = basename(__FILE__);
+$subscribeUrl = 'success.php';
+$clickid = !empty($_GET['clickid']) ? $_GET['clickid'] : '';
 
-                    <div class="frame-container">
+?>
 
-                        <div class="row-form">
-                            <div class="cont" id="cont" style="
-                              display: flex;
-                              justify-content: center;
-                              align-items: center;
-                              flex-wrap: wrap;
-                            ">
-                                <div class="left" style="display: flex; justify-content: center; align-items: center">
-                                    <img src="1.png" width="300px">
+<script>window.orderPath = 'post.php';</script>
+<script>window.pxlFB = '<?= htmlspecialchars(isset($_REQUEST['t2']) ? $_REQUEST['t2'] : '');  ?>';</script>
+
+<script type="text/javascript" src="add/js/promo_widgets_v2.js"></script>
+<link type="text/css" rel="stylesheet"  href="add/css/promo_v2.css">
+<script type="text/javascript" src="add/js/jquery.blockUI.min.js"></script>
+<script type="text/javascript" src="add/js/promo_base.js?v=24"></script>
+<script type="text/javascript" src="add/js/promo_2_12.js"></script>
+
+<script type="text/javascript" src="add/inputmask_4_x/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript" src="add/js/localization/rus.js"></script>
+
+<script>
+    window.current_country = '<?= $country_code; ?>';
+    $(function(){
+        $('body').lFunctions(
+            {"p_comeback_form": "discount","p_unload_delay":"5","p_limit_left":"60","p_vv_sex":"all","p_vv_slow":"5","p_vv_count":"on","p_vv_count_index":"1","p_vv_order":"on","p_vv_order_index":"5","p_vv_callback":"on","p_vv_callback_index":"1","p_unload_button":"off","price":"135","is_preview":true,"script_is_active":true,"is_mobile":false,"is_adaptive":true,"is_one_rub":false,"is_free":true,"is_universal":true,"special_price":"0","next_url":"","in_frame":false,"protocol":"http","cyr_city":"","clean_domain":"","web_counters":[],"comebacker_allowed":false,"s_page":"landing","s_country":"<?= $country_code; ?>","country":"<?= $country_code; ?>","s_avaliable_countries":["it","es","de","bg","pl","ro","lv","lt","cz","ee","sk","at","hu","gr","cy","pt","fr"],"s_language":"rus","s_currency":"EUR","s_collected":true,"version":"2.07","is_subscribe":true,"subscribe_url":"success.php"}
+        );
+    });
+</script>
+
+<style>
+    .pl_country_block {
+        display: none;
+    }
+    [pl-country] {
+        display: none;
+    }
+    [pl-country='<?= $country_code; ?>'] {
+        display: initial;
+    }
+</style>
+
+<style>
+  *{outline:0!important;-webkit-appearance:none!important;appearance:none!important;-webkit-tap-highlight-color:transparent!important;-webkit-tap-highlight-color:transparent!important}.pl_field_address_info{margin:0!important;padding:0!important;border:none!important;outline:0!important;position:absolute;z-index:-1;width:0!important;height:0!important}
+  .pl_modal_header,.pl_modal_phone,.pl_btn_success,.pl_btn_danger,.pl_modal_body,.pl_modal_footer{font-family: sans-serif!important;}
+</style>
+
+<style>
+  body {
+    position: relative;
+    -webkit-animation-name: fadeInLoad; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1.6s; /* Chrome, Safari, Opera */
+    animation-name: fadeInLoad;
+    animation-duration: 1.6s;
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes fadeInLoad {
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity:0;}
+    75% {opacity:0.9;}
+    100% {opacity:1;}
+  }
+
+  /* Standard syntax */
+  @keyframes fadeInLoad {
+    0% {opacity: 0;}
+    25% {opacity: 0;}
+    50% {opacity:0;}
+    75% {opacity:0.9;}
+    100% {opacity:1;}
+  }
+
+  @media screen and (max-width: 767px) {
+    #kmacb {
+      right: 10px!important;
+      /*bottom: 95px !important;*/
+    }
+  }
+</style>
+
+<div class="wrap" id="screenFirst">
+    <div class="chat show-chat zoomIn animated fMask">
+        <div class="chat show-chat zoomIn animated">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-header-container down">
+                        <div class="chat-header-container-wrapper">
+                            <div class="chat-header-container-image-left">
+                                <div class="chat-header-container-image">
+                                    <img loading="lazy" src="./static_l-3b/img/avatar.png" alt=""/>
                                 </div>
-                                <div class="right" width="">
-                                    <div class="form_wrapper_2" style="
-                                          margin: 20px auto;
-                                          display: flex;
-                                          flex-direction: column;
-                                          justify-content: center;
-                                          align-items: center;
-                                          width: 100%;
-                                        ">
-                                        <p>
-                                            Старая цена:
-                                            <span style="font-size: 24px; color: #dd1616"><s>299zł</s></span>
-                                        </p>
-                                        <p>
-                                            <b>Новая цена:
-                                                <span style="font-size: 32px; color: green">137 zł</span></b>
-                                        </p>
-                                        <p style="
-              font-size: 16px;
-              color: rgb(153, 153, 153);
-              text-align: center;
-            ">
-                                            
-                                        </p>
-                                        <p style="
-              font-size: 16px;
-              color: rgb(153, 153, 153);
-              text-align: center;
-            "></p>
-                                        <form action="https://betsportal.net/lander/prostavin-profitpay/api.php?fb=153761194260742&amp;fbclid=IwAR0uuiVF9pUZMbSSLdzI_WifWyhgH7Af9_JBvqh75iu9osrDkRYBKuAURl4&amp;k_router_campaign=fWk98MsF" id="formularz1" method="post" class="formularz-walidacja__form" style="width: 100%; text-align: center; margin: 0 auto">
-                                            <input type="hidden" name="subid" value="2rj9rp58s70i">
-                                            <br>
-                                            <select id="country" name="country" type="hidden" onchange="prefix()" style="display: none;">
-                                                <option value="al" id="+355">Albania</option>
-                                                <option value="ad" id="+376">Andora</option>
-                                                <option value="at" id="+43">Austria</option>
-                                                <option value="be" id="+32">Belgia</option>
-                                                <option value="by" id="+375">Białoruś</option>
-                                                <option value="ba" id="+387">Bośnia i Hercegowina</option>
-                                                <option value="bg" id="+359">Bułgaria</option>
-                                                <option value="hr" id="+385">Chorwacja</option>
-                                                <option value="me" id="+382">Czarnogóra</option>
-                                                <option value="cz" id="+420">Republika Czeska</option>
-                                                <option value="dk" id="+45">Dania</option>
-                                                <option value="ee" id="+372">Estonia</option>
-                                                <option value="fi" id="+358">Finlandia</option>
-                                                <option value="fr" id="+33">Francja</option>
-                                                <option value="gr" id="+30">Grecja</option>
-                                                <option value="es" id="+34">Hiszpania</option>
-                                                <option value="nl" id="+31">Holandia</option>
-                                                <option value="ie" id="+353">Irlandia</option>
-                                                <option value="is" id="+354">Islandia</option>
-                                                <option value="ca" id="+1">Kanada</option>
-                                                <option value="kz" id="+7">Kazachstan</option>
-                                                <option value="li" id="+423">Liechtenstein</option>
-                                                <option value="lt" id="+370">Litwa</option>
-                                                <option value="lu" id="+352">Luksemburg</option>
-                                                <option value="lv" id="+371">Łotwa</option>
-                                                <option value="mk" id="+389">Macedonia</option>
-                                                <option value="mt" id="+356">Malta</option>
-                                                <option value="md" id="+373">Mołdawia</option>
-                                                <option value="mc" id="+377">Monako</option>
-                                                <option value="de" id="+49">Niemcy</option>
-                                                <option value="pl" id="+48" selected="selected">Polska</option>
-                                                <option value="pt" id="+351">Portugalia</option>
-                                                <option value="ru" id="+7">Rosja</option>
-                                                <option value="ro" id="+40">Rumunia</option>
-                                                <option value="sm" id="+378">San Marino</option>
-                                                <option value="xs" id="+381">Serbia</option>
-                                                <option value="sk" id="+421">Słowacja</option>
-                                                <option value="si" id="+386">Słowenia</option>
-                                                <option value="us" id="+1">Stany Zjedn. Ameryki</option>
-                                                <option value="ch" id="+41">Szwajcaria</option>
-                                                <option value="se" id="+46">Szwecja</option>
-                                                <option value="tr" id="+90">Turcja</option>
-                                                <option value="ua" id="+380">Ukraina</option>
-                                                <option value="va" id="+39">Watykan</option>
-                                                <option value="hu" id="+36">Węgry</option>
-                                                <option value="gb" id="+44">Wielka Brytania</option>
-                                                <option value="it" id="+39">Włochy</option>
-                                                <option value="no" id="+47">Norwegia</option>
-                                                <option value="cy" id="+357">Cypr</option>
-                                            </select>
-                                            <div class="form-input" style="
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-              ">
-                                                <input class="input-name" type="text" name="name" style="
-                  margin: 5px 0;
-                  border: none;
-                  border-bottom: 1px solid lightgray;
-                  text-align: center;
-                  padding: 10px 20px;
-                  width: 85%;
-                  border-radius: 25px;
-                  font-size: 25px;
-                  box-shadow: 0px 3px 0px 0px #808080;
-                " required="" placeholder="Имя и фамилия">
-                                                <input class="phone-country" type="tel" id="phone" name="phone" style="
-                  margin: 5px 0;
-                  border: none;
-                  border-bottom: 1px solid lightgray;
-                  text-align: center;
-                  padding: 10px 20px;
-                  width: 85%;
-                  border-radius: 25px;
-                  font-size: 25px;
-                  box-shadow: 0px 3px 0px 0px #808080;
-                " required="" placeholder=" Номер телефона" pattern="(((\+[0-9]{2})|0)?[0-9]{9})" onkeyup="this.value=this.value.replace(/\s/g,'')" title="Wpisz numer telefonu zgodnie z przykładem: +48XXXXXXXXX lub XXXXXXXXX">
-                                            </div>
-                                            <div class="formularz-walidacja__form--submit submit-container">
-                                                <button type="submit" style="
-                  padding: 10px 80px;
-                  font-size: 24px;
-                  cursor: pointer;
-                  font-weight: 600;
-                  color: #fff;
-                  background-color: #c01e14;
-                  margin: 30px 0px;
-                  border-radius: 10px;
-                  border: none;
-                  -webkit-box-shadow: 0 15px 5px -4px rgba(192, 30, 20, 0.75);
-                  box-shadow: 0 15px 5px -4px rgb(74, 24, 21, 0.75);
-                " class="submit-container--btn-2">
-                                                    Отправить
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                <div class="chat-header-container-image">
+                                    <img loading="lazy" src="./static_l-3b/img/message-icon.png" style="margin-left:10px;" alt=""/>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-content-container">
+                        <div class="chat-content-list"></div>
+                        <span id="roulette"></span>
+                        <center class="red_roulete" style="display: none">
+                            <div class="door__wrapper" style="width: 80%;">
+                                <h2 class="door__title" style="color: #fff !important;"> Угадай, за какой дверью скидка
+                                    100%</h2>
+                                <div class="door__container">
+                                    <div class="box">
+                                        <div class="hi"><p id="door__sales2" class="door__sales ">100%</p></div>
+                                        <div id="door__2" class="door"></div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="hi"><p id="door__sales1" class="door__sales ">25%</p></div>
+                                        <div id="door__1" class="door"></div>
+                                    </div>
+                                    <div class="box">
+                                        <div class="hi"><p id="door__sales3" class="door__sales ">50%</p></div>
+                                        <div id="door__3" class="door"></div>
+                                    </div>
+                                </div>
+                                <br><br>
+                            </div>
+                            <div class="order_block">
+                                <div class="form-order">
+                                    <h1 style="padding-bottom:25px;font-size:22px;">Форма заказа<br>МОНЕТЫ‑ТАЛИСМАНА:</h1>
+                                    <h1 style="padding-top:0;font-size:22px;padding-bottom:15px">ПОСЛЕДНИЙ ДЕНЬ:<br><span class="nowdate" style="text-transform:uppercase;font-size:32px;color:red;" format="dayI&nbsp;monthS" daysint></span></h1>
+                                    <h1 class="upstar" style="color:red;font-size:35px;font-weight:600;padding-top:0;padding-bottom:15px;width:fit-content;margin:0 auto;">БЕСПЛАТНО</h1>
+                                    <form id="order_form" method="POST" action="">
+                                        <div class="form-group">
+                                            <select name="order[country]" class="form-control input-lg" >
+        <option value='at'>Австрия</option>
+        <option value='bg'>Болгария</option>
+        <option value='cy'>Кипр</option>
+        <option value='cz'>Чехия</option>
+        <option value='de'>Германия</option>
+        <option value='ee'>Эстония</option>
+        <option value='es'>Испания</option>
+        <option value='fr'>Франция</option>
+        <option value='gr'>Греция</option>
+        <option value='hu'>Венгрия</option>
+        <option value='it'>Италия</option>
+        <option value='lt'>Литва</option>
+        <option value='lv'>Латвия</option>
+        <option value='pl'>Польша</option>
+        <option value='pt'>Португалия</option>
+        <option value='ro'>Румыния</option>
+        <option value='sk'>Словакия</option></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="order[fio]" type="text" class="form-control input-lg" value=""
+                                                   placeholder="Введите Ваше имя" minlength="2"
+                                                   maxlength="64" autocomplete="on">
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="order[phone]" type="tel" class="form-control input-lg" value=""
+                                                   placeholder="Введите Ваш телефон" required minlength="6"
+                                                   maxlength="64" autocomplete="on">
+                                        </div>
+                                        <input type="submit" class="btn-primary"  onclick="$(this).closest('form').submit();return false;" value="Заказать талисман">
+                                        <div style="text-align:center;color:#a7a7a7;">*при оформлении заказа</div>
+                                        <input type="hidden" name="order[specifications]" value="" />
+                                        <input type="hidden" name="order[discount]" value="">
+                                        <style>
+    .pl_field_address_info{
+        opacity: 0;
+    }
+</style>
 
+<input type="checkbox" name="order[address_info]" class="pl_field_address_info">
+<input type="hidden" name="order[advHash]" class="advHash">
+<input type="hidden" name="country" value="<?= $country_code; ?>">
+<input type="hidden" name="s_country" value="<?= $country_code; ?>">
+<input type="hidden" name="product_name" value="Монета-талисман">
+<input type="hidden" name="flow" value="<?=$traffic_flow_id?>">
+<input type="hidden" name="partner" value="omni">
+<input type="hidden" name="offerId" value="137">
+<input type="hidden" name="special_price" value="0">
+<input type="hidden" name="landingUrl" value="">
+<input type="hidden" name="promo_language" value="rus">
+
+<input type="hidden" name="pxl" value="<?=$pxl?>">
+<input type="hidden" name="sub1" value='<?=$clickid?>'>
+<input type="hidden" name="sub2" value='<?=$sub2?>'>
+<input type="hidden" name="sub3" value="MBAFB1">
+<input type="hidden" name="sub4" value="MBAFB1-<?= $object_flows[$traffic_flow_id]; ?>">
+<input type="hidden" name="sub5" value='<?=$sub5?>'>
+<input type="hidden" name="binom_version" value='<?=$lp_version?>'>
+
+<input type="hidden" name="utm_source" value="<?=isset($_GET["utm_source"]) ? $_GET["utm_source"] : ""?>">
+<input type="hidden" name="utm_site" value="<?=isset($_GET["utm_site"]) ? $_GET["utm_site"] : ""?>">
+<input type="hidden" name="utm_medium" value="<?=isset($_GET["utm_medium"]) ? $_GET["utm_medium"] : ""?>">
+<input type="hidden" name="utm_campaign" value="<?=isset($_GET["utm_campaign"]) ? $_GET["utm_campaign"] : ""?>">
+<input type="hidden" name="utm_content" value="<?=isset($_GET["utm_content"]) ? $_GET["utm_content"] : ""?>">
+<input type="hidden" name="utm_term" value="<?=isset($_GET["utm_term"]) ? $_GET["utm_term"] : ""?>">
+
+<input type="hidden" name="price" value="135">  
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="spin-result-wrapper">
+                                <div class="pop-up-window">
+                                    <div class="close-popup"></div>
+                                    <span class=pop-up-heading style="font-size: 40px;margin-bottom:10px;display:block;color:black;">Поздравляем!</span>
+                                    <p class="ruletka-p pop-up-text" style="font-size: 20px!important; font-weight:400;text-align:center!important;margin:0px 10px 20px!important;font-family: open sans;">Вы выиграли скидку&nbsp;<font style="color: red;">100%</font> и&nbsp;можете забрать
+                                    Монету&#8209;талисман абсолютно <span style="color:red;">бесплатно!</span>
+                                    </p>
+                                    <a href="#roulette" class=pop-up-button style="margin-top:20px">OK</a>
+                                </div>
+                            </div>
+                            <div class="footer">
+                                ООО "СИРОС-ТОРГ"<br/>
+ИНН 9729094797 / КПП 772901001 / ОГРН 1177746583167<br/>
+119618, г. Москва, ул. Богданова д. 6 1, оф. 6<br/>
+                                <a href="./privacyPolicy" target="_blank">Политика конфиденциальности</a>&nbsp;
+<a href="./userAgreement" target="_blank">Пользовательское соглашение</a>
+                            </div>
+                        </center>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
+<div id="bg1"></div>
+<div id="bg2"></div>
+
+<span id="current-date" style="display: none;" class="nowdate" format="dayI&nbsp;monthS year"></span>
+<span id="current-year" style="display: none;" class="nowyear"></span>
+
+<script src="./static_l-3b/js/typed.js"></script>
+<script src="./static_l-3b/js/doors.js"></script>
+
+<script>
+
+for (var $_GET = {}, args = location.search.substr(1).split(/&/), i = 0; i < args.length; ++i) {
+    var tmp = args[i].split(/=/);
+    "" != tmp[0] && ($_GET[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp.slice(1).join("").replace("+", " ")))
+}
+$(document).ready((function(t) {
+    const currentDate = document.getElementById('current-date').textContent;
+    const nowyear = document.getElementById('current-year').textContent;
+
+    const months = [
+      'январе', 'феврале', 'марте',
+      'апреле', 'мае', 'июне',
+      'июле', 'августе', 'сентябре',
+      'октябре', 'ноябре', 'декабре'
+    ];
+    const curDate = new Date();
+    const curMonth = curDate.getMonth();
+
+    const nextMonthIndex = curMonth + 1 > 11 ? 0 : curMonth + 1;
+
+    var now = new Date,
+        nowMonth = now.getMonth(),
+        nowNextMonth = now.getMonth() + 1,
+        nowYear = now.getFullYear(),
+        nowNextYear = now.getFullYear() + 1;
+        /*inMonth = ["январе", "феврале", "марте", "апреле", "мае", "июне", "июле", "августе", "сентябре", "октябре", "ноябре", "декабре"];*/
+
+    function Template(type, id = !1, text = "") {
+        var template = "",
+            avatar = "",
+            id_text = "",
+            id_paragraph = "";
+        return "manager" === type && (avatar = '<img class="chat-content-desc-image" loading="lazy" src="./static_l-3b/img/avatar.png" alt="" />'), id && (id_text = "text-" + id, id_paragraph = ' class="p' + id + '"'), '<div class="chat-content-item ' + type + " " + id_text + '"><div class="chat-content-desc">' + avatar + '<div class="chat-content-desc-item ' + type + '"><p' + id_paragraph + ">" + text + "</p></div></div></div>"
+    }
+
+    function Gender(info) {
+        var template;
+        return '<div class="chat-content-buttons-gender"><div class="chat-content-buttons-gender-block"><span class="chooseGender" data-type="m">' + info.m.text + '</span></div><div class="chat-content-buttons-gender-block"><span class="chooseGender" data-type="w">' + info.w.text + "</span></div></div>"
+    }
+
+    function Zodiak() {
+        var list_day, list_month, list_year, Days, Month = function() {
+                return $.each(t.DateBirthday[0].month, (function(index, value) {
+                    var num;
+                    list_month += '<option value="' + (index + 1) + '">' + value + "</option>"
+                })), list_month
+            },
+            Year = function() {
+                for (i = t.DateBirthday[0].year[0]; i < t.DateBirthday[0].year[1] + 1; i++) list_year += '<option value="' + i + '">' + i + "</option>";
+                return list_year
+            },
+            template;
+        return '<form name="questionForm" class="form"><div class="form-group"><div class="form-group-inline"><select name="day" class="custom-select select-day"><option value="" selected="selected">День</option>' + function() {
+            for (i = t.DateBirthday[0].day[0]; i < t.DateBirthday[0].day[1] + 1; i++) list_day += '<option value="' + i + '">' + i + "</option>";
+            return list_day
+        }() + '</select></div><div class="form-group-inline full-month"><select name="month" class="custom-select select-month"><option value="" selected="selected">Месяц</option>' + Month() + '</select></div><div class="form-group-inline year"><select name="year" class="custom-select select-year"><option value="" selected="selected">Год</option>' + Year() + "</select></div></div></form>"
+    }
+
+    function GenderResult(type_name) {
+        $(".chat-content-buttons-gender").remove(), $(".chat-content-list").append(Template("user")), $(".chat-content-item.user p").html(t.managerDialog[1][type_name].text), $(".chat-content-list").append(Template("manager")), $(".chat-content-item.manager p").typed({
+            strings: [t.managerDialog[2].text],
+            showCursor: !1,
+            callback: function() {
+                setTimeout((function() {
+                    $(".chat-content-list").append(Zodiak()), t.Scroll();
+                    var date_birth = [],
+                        d, form = $('form[name="questionForm"]');
+
+                    function checkSelect() {
+                        form.find("select").each((function() {
+                            "" != $(this).val() ? $(this).removeClass("empty_field") : $(this).addClass("empty_field"), date_birth[this.name] = $(this).val()
+                        }))
+                    }
+                    form.find("select").addClass("empty_field"), form.find("select").change((function() {
+                        var sizeEmpty;
+                        if (checkSelect(), 0 == form.find(".empty_field").size()) {
+                            form.remove();
+                            var type = t.MonthVariantType[date_birth.month - 1],
+                                month1 = t.MonthVariant[type][0],
+                                month2 = t.MonthVariant[type][1],
+                                month3 = t.MonthVariant[type][2];
+                            d = [date_birth.day, date_birth.month], d = t.getZodiak(d), date_birth.day = date_birth.day.length > 1 ? date_birth.day : "0" + date_birth.day, date_birth.month = date_birth.month.length > 1 ? date_birth.month : "0" + date_birth.month, $(".chat-content-list").append(Template("user", "date")), $(".chat-content-item.user.text-date p").html(date_birth.day + "." + date_birth.month + "." + date_birth.year);
+                            var birth_date = date_birth.day + "." + date_birth.month + "." + date_birth.year;
+                            window.birth_date = birth_date;
+                            var array_text = [],
+                                text_typed = [],
+                                replace_reg = {
+                                    zodie: t.ZodiakName[d - 1].name,
+                                    date: date_birth.day,
+                                    month1: month1,
+                                    month2: month2,
+                                    month3: month3,
+                                    year: date_birth.year,
+                                    number: t.randomIntFromInterval(4, 10)
+                                };
+                            $(".chat-content-list").append(Template("manager", "birthday"));
+                            var str = t.userZodiak[0].text,
+                                UserZodiakText = t.Replace(str, replace_reg);
+                            $(".chat-content-item.manager p").typed({
+                                strings: [UserZodiakText],
+                                showCursor: !1,
+                                callback: function() {
+                                    var str2, socNumberText = [{
+                                        text: t.Replace(t.socNumber[0].text, replace_reg)
+                                    }];
+                                    array_text = $.merge(t.managerVariants[type_name][0][t.ZodiakName[d - 1].id - 1], socNumberText), array_text = $.merge(array_text, t.managerVariants[type_name][0][12]), array_text = $.merge(array_text, t.managerVariants[type_name][0][13]), $.each(array_text, (function(index, value) {
+                                        text_typed.push(t.Replace(value.text, replace_reg))
+                                    })), t.LoadListMessages(text_typed, replace_reg.zodie)
+                                }
+                            })
+                        }
+                    }))
+                }), 1e3)
+            }
+        })
+    }
+    t.randomIntFromInterval = function(t, e) {
+        return Math.floor(Math.random() * (e - t + 1) + t)
+    }, t.managerDialog = [{
+        text: "В " + `${months[nextMonthIndex]} ${nowyear}` + " быстро разбогатеют 3 знака зодиака, а 2 знака станут нищими. Сейчас вы узнаете, что вас ждет.<br> Здравствуйте, я астролог – Василиса Володина. Добро пожаловать на мой официальный сайт.<img loading='lazy' src='./static_l-3b/img/999.jpg' style='display:block;margin-top:10px;'> </img>"
+    }, {
+        text: "Чтобы получить предсказание, ответьте всего на 2 вопроса.<br>Вы мужчина или женщина?",
+        m: {
+            text: "Мужчина"
+        },
+        w: {
+            text: "Женщина"
+        }
+    }, {
+        text: "Когда Вы родились?"
+    }], t.userZodiak = [{
+        text: "Спасибо. По гороскопу Вы – {zodie}."
+    }], t.managerVariants = {
+        w: [
+            [
+                [{
+                    text: "Это стихия огня. Бывает, что вы нетерпеливы и вспыльчивы, при этом отважны и храбры."
+                }, {
+                    text: "Вы – яркая и креативная личность, легко находите вдохновение, а также полностью отдаетесь любимому делу и близким людям."
+                }, {
+                    text: "Вы всегда стремитесь к независимости и самостоятельности, при этом обладаете притягательностью для других людей."
+                }],
+                [{
+                    text: "Это стихия земли. Вы точно знаете, чего хотите от жизни, вам свойственны стабильность, умеренность и логичность."
+                }, {
+                    text: "Вы не любите активно переезжать с места на место, привязаны к дому, родной земле и любимым занятиям."
+                }, {
+                    text: "Вы заботитесь о душевном равновесии и всегда стараетесь сделать свою жизнь лучше."
+                }],
+                [{
+                    text: "Это стихия воздуха. Вы весьма активная, деятельная и энергичная натура, стремитесь знать все."
+                }, {
+                    text: "Вы легко находите контакт с другими людьми, быстро схватываете, строите связи и используете полученные данные."
+                }, {
+                    text: "Стоит отметить, что вы обладаете духовной гибкостью, устойчивой психикой, активным умом. Вам не свойственна усталость, если вы чем-то увлечены, но устаете от однообразной рутины."
+                }],
+                [{
+                    text: "Это стихия воды. Вы часто любите мечтать, имеете богатую фантазию и яркое воображение."
+                }, {
+                    text: "Вы имеете тонкий духовный мир, стараетесь быть со всеми любезны, вежливы и учтивы."
+                }, {
+                    text: "Бывает так, что вы даже можете принести себя в жертву на благо близких людей, так как всегда очень искренни в проявлении чувств к любимым и родным."
+                }],
+                [{
+                    text: "Это стихия огня. Бывает, что вы нетерпеливы и вспыльчивы, при этом отважны и храбры."
+                }, {
+                    text: "Вы – яркая и креативная личность, легко находите вдохновение, а также полностью отдаетесь любимому делу и близким людям."
+                }, {
+                    text: "Вы всегда стремитесь к независимости и самостоятельности, при этом обладаете притягательностью для других людей."
+                }],
+                [{
+                    text: "Это стихия земли. Вы точно знаете, чего хотите от жизни, вам свойственны стабильность, умеренность и логичность."
+                }, {
+                    text: "Вы не любите активно переезжать с места на место, привязаны к дому, родной земле и любимым занятиям."
+                }, {
+                    text: "Вы заботитесь о душевном равновесии, и всегда стараетесь сделать свою жизнь лучше."
+                }],
+                [{
+                    text: "Это стихия воздуха. Вы весьма активная, деятельная и энергичная натура, стремитесь знать все."
+                }, {
+                    text: "Вы легко находите контакт с другими людьми, быстро схватываете, строите связи и используете полученные данные."
+                }, {
+                    text: "Стоит отметить, что вы обладаете духовной гибкостью, устойчивой психикой, активным умом. Вам не свойственна усталость, если вы чем-то увлечены, но устаете от однообразной рутины."
+                }],
+                [{
+                    text: "Это стихия воды. Вы часто любите мечтать, имеете богатую фантазию и яркое воображение."
+                }, {
+                    text: "Вы имеете тонкий духовный мир, стараетесь быть со всеми любезны, вежливы и учтивы."
+                }, {
+                    text: "Бывает так, что вы даже можете принести себя в жертву на благо близких людей, так как всегда очень искренни в проявлении чувств к любимым и родным."
+                }],
+                [{
+                    text: "Это стихия огня. Бывает, что вы нетерпеливы и вспыльчивы, при этом отважны и храбры."
+                }, {
+                    text: "Вы – яркая и креативная личность, легко находите вдохновение, а также полностью отдаетесь любимому делу и близким людям."
+                }, {
+                    text: "Вы всегда стремитесь к независимости и самостоятельности, при этом обладаете притягательностью для других людей."
+                }],
+                [{
+                    text: "Это стихия земли. Вы точно знаете, чего хотите от жизни, вам свойственны стабильность, умеренность и логичность."
+                }, {
+                    text: "Вы не любите активно переезжать с места на место, привязаны к дому, родной земле и любимым занятиям."
+                }, {
+                    text: "Вы заботитесь о душевном равновесии, и всегда стараетесь сделать свою жизнь лучше."
+                }],
+                [{
+                    text: "Это стихия воздуха. Вы весьма активная, деятельная и энергичная натура, стремитесь знать все."
+                }, {
+                    text: "Вы легко находите контакт с другими людьми, быстро схватываете, строите связи и используют полученные данные."
+                }, {
+                    text: "Стоит отметить, что вы обладаете духовной гибкостью, устойчивой психикой, активным умом. Вам не свойственна усталость, если вы чем-то увлечены, но устаете от однообразной рутины."
+                }],
+                [{
+                    text: "Это стихия воды. Вы часто любите мечтать, имеете богатую фантазию и яркое воображение."
+                }, {
+                    text: "Вы имеете тонкий духовный мир, стараетесь быть со всеми любезны, вежливы и учтивы."
+                }, {
+                    text: "Бывает так, что вы даже можете принести себя в жертву на благо близких людей, так как всегда очень искренни в проявлении чувств к любимым и родным."
+                }],
+                [{
+                    text: "Знак – {zodie} ждет финансовый переворот в ближайшем будущем. Финансовая фортуна сейчас находится на дне. Вы сами отталкиваете деньги и удачу из жизни."
+                }, {
+                    text: "Вы не сможете выбраться из этой ямы еще долгие годы, если оставите все как есть. Вам грозит нищета."
+                }, {
+                    text: "У вас сейчас неправильный путь. Он вам не нравится и вы пытаетесь его изменить или найти помощь от того, кто может это сделать."
+                }, {
+                    text: "Я четко вижу, что у вас в " + months[nextMonthIndex] + " будет возможность изменить свою жизнь, с черной полосы на белую, до конца жизни."
+                }, {
+                    text: "Все в вашей жизни происходит не по случайности. Знак – {zodie} очень восприимчив к плохой энергии. Вам нужно защитить себя и привлечь к себе денежную удачу."
+                }],
+                [{
+                    text: "Сразу хочу вас предупредить, что в вашей ситуации простые заговоры не помогут. Тут нужно действовать наверняка и смотреть в корень проблемы. Обычный заговор не сможет решить вашу проблему, а только ухудшит ситуацию."
+                }, {
+                    text: "Моя помощь заключаться будет в том, что я избавлю вас от черной метки и очищу вас от влияния обета несчастья. Это позволит освободить вашу удачу из заточения."
+                }, {
+                    text: "Я БЕСПЛАТНО изготовлю специальную Монету&#8209;талисман с особенным заговором, который снимет с вас обет неудачи."
+                }, {
+                    text: "Вот так будет выглядеть ваша Монета&#8209;талисман: <img loading='lazy' src='./static_l-3b/order_tube2.png' style='display: block;max-width: 400px; width: 100%;margin-top:10px;margin-left:0;'></img>"
+                }, {
+                    text: "Этот талисман уже через месяц изменит вашу жизнь кардинально. Деньги хлынут потоком к вам из разных источников, вы сможете до конца жизни забыть о финансовых неудачах и экономии средств."
+                }, {
+                    text: "Такой же амулет я подарила многим звездам, чтобы он охранял их и приносил им удачу: "
+                }, {
+                    text: "Моя коллега-астролог Тамара Глоба <img loading='lazy' src='./static_l-3b/img/globa.jpg' style='display:block;margin-top:10px;'> </img>"
+                }, {
+                    text: "Популярный исполнитель Стас Михайлов <img loading='lazy' src='./static_l-3b/img/stas1.jpg' style='display:block;margin-top:10px;'> </img> "
+                }, {
+                    text: "Я и сама постоянно ношу такую Монету&#8209;талисман на шее или в кошельке. <img loading='lazy' src='./static_l-3b/order_tube2.png' style='display: block; margin: 0 auto; max-width: 400px; width: 100%;margin-top:0;' />"
+                }, {
+                    text: "Изготовлением и заговором талисманов я занимаюсь лично сама <img loading='lazy' src='./static_l-3b/img/bb1.jpg' style='display:block;margin-top:10px;'> </img>"
+                }, {
+                    text: "Я всегда стараюсь помочь людям в решении их проблем, и никогда не стараюсь на этом нажиться. Именно поэтому до " + currentDate + " года (включительно) у вас есть возможность получить Монету&#8209;талисман БЕСПЛАТНО."
+                }, {
+                    text: "Выберите дверь со скидкой 100% и напишите свое имя и номер телефона в форму заказа."
+                }]
+            ]
+        ],
+        m: [
+            [
+                [{
+                    text: "Это стихия огня. Бывает, что вы нетерпеливы и вспыльчивы, при этом отважны и храбры."
+                }, {
+                    text: "Вы – яркая и креативная личность, легко находите вдохновение, а также полностью отдаетесь любимому делу и близким людям."
+                }, {
+                    text: "Вы всегда стремитесь к независимости и самостоятельности, при этом обладаете притягательностью для других людей."
+                }],
+                [{
+                    text: "Это стихия земли. Вы точно знаете, чего хотите от жизни, вам свойственны стабильность, умеренность и логичность."
+                }, {
+                    text: "Вы не любите активно переезжать с места на место, привязаны к дому, родной земле и любимым занятиям."
+                }, {
+                    text: "Вы заботитесь о душевном равновесии, и всегда стараетесь сделать свою жизнь лучше."
+                }],
+                [{
+                    text: "Это стихия воздуха. Вы весьма активная, деятельная и энергичная натура, стремитесь знать все."
+                }, {
+                    text: "Вы легко находите контакт с другими людьми, быстро схватываете, строите связи и используете полученные данные."
+                }, {
+                    text: "Стоит отметить, что вы обладаете духовной гибкостью, устойчивой психикой, активным умом. Вам не свойственна усталость, если вы чем-то увлечены, но устаете от однообразной рутины."
+                }],
+                [{
+                    text: "Это стихия воды. Вы часто любите мечтать, имеете богатую фантазию и яркое воображение."
+                }, {
+                    text: "Вы имеете тонкий духовный мир, стараетесь быть со всеми любезны, вежливы и учтивы."
+                }, {
+                    text: "Бывает так, что вы даже можете принести себя в жертву на благо близких людей, так как всегда очень искренни в проявлении чувств к любимым и родным."
+                }],
+                [{
+                    text: "Это стихия огня. Бывает, что вы нетерпеливы и вспыльчивы, при этом отважны и храбры."
+                }, {
+                    text: "Вы – яркая и креативная личность, легко находите вдохновение, а также полностью отдаетесь любимому делу и близким людям."
+                }, {
+                    text: "Вы всегда стремитесь к независимости и самостоятельности, при этом обладаете притягательностью для других людей."
+                }],
+                [{
+                    text: "Это стихия земли. Вы точно знаете, чего хотите от жизни, вам свойственны стабильность, умеренность и логичность."
+                }, {
+                    text: "Вы не любите активно переезжать с места на место, привязаны к дому, родной земле и любимым занятиям."
+                }, {
+                    text: "Вы заботитесь о душевном равновесии и всегда стараетесь сделать свою жизнь лучше."
+                }],
+                [{
+                    text: "Это стихия воздуха. Вы весьма активная, деятельная и энергичная натура, стремитесь знать все."
+                }, {
+                    text: "Вы легко находите контакт с другими людьми, быстро схватываете, строите связи и используете полученные данные."
+                }, {
+                    text: "Стоит отметить, что вы обладаете духовной гибкостью, устойчивой психикой, активным умом. Вам не свойственна усталость, если вы чем-то увлечены, но устаете от однообразной рутины."
+                }],
+                [{
+                    text: "Это стихия воды. Вы часто любите мечтать, имеете богатую фантазию и яркое воображение."
+                }, {
+                    text: "Вы имеете тонкий духовный мир, стараетесь быть со всеми любезны, вежливы и учтивы."
+                }, {
+                    text: "Бывает так, что вы даже можете принести себя в жертву на благо близких людей, так как всегда очень искренни в проявлении чувств к любимым и родным."
+                }],
+                [{
+                    text: "Это стихия огня. Бывает, что вы нетерпеливы и вспыльчивы, при этом отважны и храбры."
+                }, {
+                    text: "Вы – яркая и креативная личность, легко находите вдохновение, а также полностью отдаетесь любимому делу и близким людям."
+                }, {
+                    text: "Вы всегда стремитесь к независимости и самостоятельности, при этом обладаете притягательностью для других людей."
+                }],
+                [{
+                    text: "Это стихия земли. Вы точно знаете, чего хотите от жизни, вам свойственны стабильность, умеренность и логичность."
+                }, {
+                    text: "Вы не любите активно переезжать с места на место, привязаны к дому, родной земле и любимым занятиям."
+                }, {
+                    text: "Вы заботитесь о душевном равновесии, и всегда стараетесь сделать свою жизнь лучше."
+                }],
+                [{
+                    text: "Это стихия воздуха. Вы весьма активная, деятельная и энергичная натура, стремитесь знать все."
+                }, {
+                    text: "Вы легко находите контакт с другими людьми, быстро схватываете, строите связи и используете полученные данные."
+                }, {
+                    text: "Стоит отметить, что вы обладаете духовной гибкостью, устойчивой психикой, активным умом. Вам не свойственна усталость, если вы чем-то увлечены, но устаете от однообразной рутины."
+                }],
+                [{
+                    text: "Это стихия воды. Вы часто любите мечтать, имеете богатую фантазию и яркое воображение."
+                }, {
+                    text: "Вы имеете тонкий духовный мир, стараетесь быть со всеми любезны, вежливы и учтивы."
+                }, {
+                    text: "Бывает так, что вы даже можете принести себя в жертву на благо близких людей, так как всегда очень искренни в проявлении чувств к любимым и родным."
+                }],
+                [{
+                    text: "Знак – {zodie} ждет финансовый переворот в ближайшем будущем. Финансовая фортуна сейчас находится на дне. Вы сами отталкиваете деньги и удачу из жизни."
+                }, {
+                    text: "Вы не сможете выбраться из этой ямы еще долгие годы, если оставите все как есть. Вам грозит нищета."
+                }, {
+                    text: "У вас сейчас неправильный путь. Он вам не нравится и вы пытаетесь его изменить или найти помощь от того, кто может это сделать."
+                }, {
+                    text: "Я четко вижу, что у вас в " + months[nextMonthIndex] + " будет возможность изменить свою жизнь, с черной полосы на белую, до конца жизни."
+                }, {
+                    text: "Все в вашей жизни происходит не по случайности. Знак – {zodie} очень восприимчив к плохой энергии. Вам нужно защитить себя и привлечь к себе денежную удачу."
+                }],
+                [{
+                    text: "Сразу хочу вас предупредить, что в вашей ситуации простые заговоры не помогут. Тут нужно действовать наверняка и смотреть в корень проблемы. Обычный заговор не сможет решить вашу проблему, а только ухудшит ситуацию."
+                }, {
+                    text: "Моя помощь заключаться будет в том, что я избавлю вас от черной метки и очищу вас от влияния обета несчастья. Это позволит освободить вашу удачу из заточения."
+                }, {
+                    text: "Я БЕСПЛАТНО изготовлю специальную Монету&#8209;талисман с особенным заговором, который снимет с вас обет неудачи."
+                }, {
+                    text: "Вот так будет выглядеть ваша Монета&#8209;талисман: <img loading='lazy' src='./static_l-3b/order_tube2.png' style='display: block; margin: 0 auto; max-width: 400px; width: 100%;margin-top:10px;margin-left:0;'></img>"
+                }, {
+                    text: "Этот талисман уже через месяц изменит вашу жизнь кардинально. Деньги хлынут потоком к вам из разных источников, вы сможете до конца жизни забыть о финансовых неудачах и экономии средств."
+                }, {
+                    text: "Такой же амулет я подарила многим звездам, чтобы он охранял их и приносил им удачу: "
+                }, {
+                    text: "Моя коллега-астролог Тамара Глоба <img loading='lazy' src='./static_l-3b/img/globa.jpg' style='display: block; margin-top:10px;'> </img>"
+                }, {
+                    text: "Популярный исполнитель Стас Михайлов <img loading='lazy' src='./static_l-3b/img/stas1.jpg' style='display: block; margin-top:10px;'> </img> "
+                }, {
+                    text: "Я и сама постоянно ношу такую Монету&#8209;талисман на шее или в кошельке. <img loading='lazy' src='./static_l-3b/order_tube2.png' style='display: block;max-width: 400px; width: 100%; margin-top:10px;' />"
+                }, {
+                    text: "Изготовлением и заговором талисманов я занимаюсь лично сама <img loading='lazy' src='./static_l-3b/img/bb1.jpg' style='display: block; margin-top:10px;'> </img>"
+                }, {
+                    text: "Я всегда стараюсь помочь людям в решении их проблем, и никогда не стараюсь на этом нажиться. Именно поэтому до " + currentDate + " года (включительно) у вас есть возможность получить Монету&#8209;талисман БЕСПЛАТНО."
+                }, {
+                    text: "Выберите дверь со скидкой 100% и напишите свое имя и номер телефона в форму заказа."
+                }]
+            ]
+        ]
+    }, t.socNumber = [{
+        text: "Ваше сакральное число – {number}. Это значит, что в " + months[nextMonthIndex] + " ваша жизнь может резко изменится в лучшую сторону."
+    }], t.getZodiak = function(e) {
+        var n = parseInt(e[0]);
+        switch (parseInt(e[1])) {
+            case 1:
+                t.zodiak = n <= 20 ? 10 : 11;
+                break;
+            case 2:
+                t.zodiak = n <= 19 ? 11 : 12;
+                break;
+            case 3:
+                t.zodiak = n <= 20 ? 12 : 1;
+                break;
+            case 4:
+                t.zodiak = n <= 20 ? 1 : 2;
+                break;
+            case 5:
+                t.zodiak = n <= 21 ? 2 : 3;
+                break;
+            case 6:
+                t.zodiak = n <= 21 ? 3 : 4;
+                break;
+            case 7:
+                t.zodiak = n <= 22 ? 4 : 5;
+                break;
+            case 8:
+                t.zodiak = n <= 21 ? 5 : 6;
+                break;
+            case 9:
+                t.zodiak = n <= 23 ? 6 : 7;
+                break;
+            case 10:
+                t.zodiak = n <= 23 ? 7 : 8;
+                break;
+            case 11:
+                t.zodiak = n <= 22 ? 8 : 9;
+                break;
+            case 12:
+                t.zodiak = n <= 22 ? 9 : 10
+        }
+        return t.zodiak
+    }, t.ZodiakName = [{
+        name: "Овен",
+        id: 1
+    }, {
+        name: "Телец",
+        id: 2
+    }, {
+        name: "Близнецы",
+        id: 3
+    }, {
+        name: "Рак",
+        id: 4
+    }, {
+        name: "Лев",
+        id: 5
+    }, {
+        name: "Дева",
+        id: 6
+    }, {
+        name: "Весы",
+        id: 7
+    }, {
+        name: "Скорпион",
+        id: 8
+    }, {
+        name: "Стрелец",
+        id: 9
+    }, {
+        name: "Козерог",
+        id: 10
+    }, {
+        name: "Водолей",
+        id: 11
+    }, {
+        name: "Рыбы",
+        id: 12
+    }], t.DateBirthday = [{
+        day: [1, 31],
+        month: ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"],
+        year: [1940, 2019]
+    }], t.MonthVariantType = ["january", "fabruary", "march", "april", "may", "june", "august", "august", "september", "october", "november", "december"], t.MonthVariant = {
+        january: ["январь", "января", "январе"],
+        fabruary: ["февраль", "февраля", "феврале"],
+        march: ["март", "марта", "марте"],
+        april: ["апрель", "апреля", "апреле"],
+        may: ["май", "мая", "мае"],
+        june: ["июнь", "июня", "июне"],
+        july: ["июль", "июля", "июле"],
+        august: ["август", "августа", "августе"],
+        september: ["сентябрь", "сентября", "сентябре"],
+        october: ["октябрь", "октября", "октебре"],
+        november: ["ноябрь", "ноября", "ноябре"],
+        december: ["декабрь", "декабря", "декабре"]
+    }, t.Scroll = function() {
+        $(document).ready((function() {
+            function resized(elem, func = function() {}, args = []) {
+                elem = jQuery(elem), func = func.bind(elem);
+                var h = -1,
+                    w = -1;
+                setInterval((function() {
+                    elem.height() == h && elem.width() == w || (h = elem.height(), w = elem.width(), elem.parent().animate({
+                        scrollTop: h
+                    }, 50), func.apply(null, args))
+                }), 100)
+            }
+            resized(".chat-content-container .chat-content-list", (function(a) {}), [])
+        }))
+    }, t.Replace = function(text_str, obj) {
+        var val = text_str,
+            entries;
+        return Object.entries(obj).forEach(para => {
+            var find = "{" + para[0] + "}",
+                regExp = new RegExp(find, "g");
+            val = val.replace(regExp, para[1])
+        }), val
+    }, t.LoadListMessages = function(text_info, zodie) {
+        var i = 1,
+            i2 = 1,
+            count = 0,
+            options = {
+                showCursor: !1
+            };
+        for (count = text_info.length; i < count + 1; i++) options.onStringTyped = function() {
+            ++i2 < count + 1 && (options.array_id = i2, options.strings = [text_info[i2 - 1]], $(".chat-content-list").append(Template("manager", i2)), $(".chat-content-item.manager p.p" + i2).typed(options), t.Scroll()), i2 == count + 1 && setTimeout((function() {
+                $(".chat-content-list").append($(".red_roulete").fadeIn()), t.Scroll()
+            }), 1500)
+        }, 1 == i && (options.array_id = i, options.strings = [text_info[i - 1]], $(".chat-content-list").append(Template("manager", i)), $(".chat-content-item.manager p.p" + i).typed(options), t.Scroll())
+    }, $(window).on("load", (function() {
+        $(".chat-content-list").append(Template("manager")), t.Scroll(), $(".chat-content-item.manager p").typed({
+            strings: [t.managerDialog[0].text],
+            showCursor: !1,
+            callback: function() {
+                setTimeout((function() {
+                    $(".chat-content-list").append(Template("manager")), t.Scroll(), $(".chat-content-item.manager p").typed({
+                        strings: [t.managerDialog[1].text],
+                        showCursor: !1,
+                        callback: function() {
+                            setTimeout((function() {
+                                t.Scroll(), $(".chat-content-list").append(Gender(t.managerDialog[1])), t.Scroll(), $(".chooseGender").on("click", (function() {
+                                    var type;
+                                    GenderResult($(this).data("type"))
+                                }))
+                            }), 1e3)
+                        }
+                    })
+                }), 1e3)
+            }
+        })
+    }))
+}));
+</script>
+
+
+<script>
+    $(function () {
+    var $redCoronaBanner = $('#corona-banner.main-banner');
+    var $greenCoronaBanner = $('#corona-banner').not('.main-banner');
+    var $cookieBlock = $('#cookie');
+    var $footer = $('.fMask'); // Изменить селектор если отличается
+    var $callbackBtn = $('#kmacb');
+    var $body = $('body');
+    var wasWindowResizedOrScrolled = false;
+
+    changeIndents();
+
+    $cookieBlock.on('click', '#closecookie1, #closecookie2', changeIndents);
+
+    window.addEventListener('load', function() {
+      $(document).on('scroll', function() {
+        wasWindowResizedOrScrolled = true;
+        changeIndents();
+      });
+      $(window).on('resize', function() {
+        wasWindowResizedOrScrolled = true;
+        changeIndents();
+      });
+    });
+
+    function changeIndents() {
+      var calculatedIndents = getCalculatedIndents();
+
+      $footer.css('padding-bottom', calculatedIndents.footerIndent + 'px');
+      $callbackBtn.css('bottom', calculatedIndents.callbackBtnIndent + 'px');
+      $redCoronaBanner.css('margin-bottom', calculatedIndents.redCoronaBannerIndent + 'px');
+
+      wasWindowResizedOrScrolled && $body.css('padding-top', calculatedIndents.bodyIndent + 'px');
+    }
+
+    function getCalculatedIndents() {
+      var cookieBlockHeight = getBlockHeight($cookieBlock);
+      var redCoronaBannerHeight = getBlockHeight($redCoronaBanner);
+      var greenCoronaBannerHeight = getBlockHeight($greenCoronaBanner);
+
+      var footerIndent = cookieBlockHeight + redCoronaBannerHeight + 35;
+      if($(window).scrollTop() > 100) {
+        var callbackBtnIndent = cookieBlockHeight + redCoronaBannerHeight;
+      } else {
+        var callbackBtnIndent = cookieBlockHeight;
+      }
+      var bodyIndent = greenCoronaBannerHeight || redCoronaBannerHeight;
+      var redCoronaBannerIndent = cookieBlockHeight;
+
+
+      return {
+        footerIndent,
+        callbackBtnIndent,
+        bodyIndent,
+        redCoronaBannerIndent,
+      };
+    }
+
+    function checkBlockAvailability($block) {
+      return $block.css('display') !== 'none' && $block.length !== 0;
+    }
+
+    function getBlockHeight($block) {
+      var isBlockAvailable = checkBlockAvailability($block);
+      var blockHeight = isBlockAvailable ? $block.outerHeight() : 0;
+
+      return blockHeight;
+    }
+  });
+</script>
+
+<div id="cookie" class="cookie-popup">
+    <div class="close-cookie-popup" id="closecookie1">×</div>
+    <div class="cookie-popup-inner">
+        Оформляя заказ Вы подтверждаете, что ознакомились с
+        <a href="./privacyPolicy" target="_blank">Политика конфиденциальности</a>&nbsp;
+        <a href="./userAgreement" target="_blank">Пользовательское соглашение</a>
+        и даете свое согласие на обработку Ваших персональных данных
+    </div>
+    <div class="dismiss-popup" id="closecookie2">ОК</div>
+</div>
+
+<style>
+    .cookie-popup {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(30, 30, 30, 0.7);
+        color: #ffffff;
+        padding: 4px 10px;
+        z-index: 1000;
+        width: 100%;
+        font-family: Arial;
+        text-align: center;
+    }
+
+    .cookie-popup-inner {
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 20px;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        text-transform: none;
+        line-height: 12px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .cookie-popup-inner a {
+        color: #fff;
+        text-decoration: underline;
+        padding-left: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .dismiss-popup {
+        display: inline-block;
+        vertical-align: middle;
+        width: 72px;
+        border: 1px solid #ffffff;
+        padding: 0;
+        border-radius: 3px;
+        line-height: 20px;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        font-size: 12px;
+        transition: 0.3s all
+    }
+
+    .dismiss-popup:hover {
+        background: rgba(30, 30, 30, 0.5);
+    }
+
+    .close-cookie-popup {
+        position: absolute;
+        right: 2px;
+        top: 0;
+        font-size: 22px;
+        line-height: 30px;
+        display: inline-block;
+        text-align: center;
+        color: #ffffff;
+        cursor: pointer;
+        width: 30px;
+    }
+
+    @media screen and (max-width: 660px) {
+        .cookie-popup {
+            text-align: left;
+            padding-left: 15px;
+            padding-top: 16px;
+        }
+
+        .cookie-popup-inner {
+            text-align: left;
+            width: calc(100% - 100px);
+        }
+    }
+
+    @media screen and (max-width: 540px) {
+        .cookie-popup-inner {
+            font-size: 12px;
+        }
+    }
+</style>
+
+<script>
+    document.getElementById('closecookie1').onclick = function () {
+        document.getElementById('cookie').style.display = 'none';
+    }
+    document.getElementById('closecookie2').onclick = function () {
+        document.getElementById('cookie').style.display = 'none';
+    }
+</script>
+<script>
+    (function(){
+        let currentCountry = '<?= $country_code; ?>';
+        $('[pl-country="'+currentCountry+'"]').each(function(){
+            if($(this).attr('pl-src')) {
+                let src = $(this).attr('pl-src');
+                $(this).attr('src', src);
+                $(this).removeAttr('pl-src');
+            }
+        });
+        $('[pl-country="'+currentCountry+'"]').find('[pl-src]').each(function(){
+            let src = $(this).attr('pl-src');
+            $(this).attr('src', src);
+            $(this).removeAttr('pl-src');
+        });
+    })();
+</script>
+
+<div id="plOrderCreatedModal" class="pl_modal pl_hidden">
+    <div class="pl_modal_dialog">
+        <div class="pl_modal_content">
+            <a href="#" class="ps-icon-cross popup-close"></a>
+            <div class="pl_modal_header" l-loc="l_pl10">
+                Подтвердите, что номер указан правильно:
+            </div>
+            <div class="pl_modal_body">
+                <div class="pl_modal_phone">
+
+                </div>
+            </div>
+            <div class="pl_modal_footer">
+                <button class="pl_btn pl_btn_success" l-loc="l_pl11">ДА</button>
+                <button class="pl_btn pl_btn_danger" l-loc="l_pl12">НЕТ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="plDuplicateOrderModal" class="pl_modal pl_hidden">
+    <div class="pl_modal_dialog">
+        <div class="pl_modal_content">
+            <a href="#" class="ps-icon-cross popup-close"></a>
+            <div class="pl_modal_header">
+                <h4 class="pl_modal_title">
+                    -
+                </h4>
+            </div>
+            <div class="pl_modal_body">
+                -
+            </div>
+            <div class="pl_modal_footer">
+                <button class="pl_btn pl_btn_success">ОК</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="plErrorModal" class="pl_modal pl_hidden">
+    <div class="pl_modal_dialog">
+        <div class="pl_modal_content">
+            <a href="#" class="ps-icon-cross popup-close"></a>
+            <div class="pl_modal_header">
+                <h4 class="pl_modal_title">
+                    -
+                </h4>
+            </div>
+            <div class="pl_modal_body">
+                -
+            </div>
+            <div class="pl_modal_footer">
+                <button class="pl_btn pl_btn_danger">ОК</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="plSpecialModal" class="pl_modal pl_hidden">
+    <div class="pl_modal_dialog">
+        <div class="pl_modal_content">
 
         </div>
     </div>
-
 </div>
 
+<div class="pl_modal_backdrop pl_hidden"></div>
 
-<script src="new.js"></script>
-
-<script src="jquery.min-1.js"></script>
-<script type="text/javascript">
-    var jQuery_3_5_1 = $.noConflict(true);
+<script>
+    (function() {
+        let traffic_flow_id = '<?= $traffic_flow_id; ?>'
+        let params = (new URL(document.location)).searchParams;
+        let block = '';
+        params.forEach(function(value, key) {
+            block = block + key + '=' + value + '&';
+        })
+        params.set('clickid', "<?=!empty($_GET['clickid']) ? $_GET['clickid'] : '';?>")
+        params.set('pxl', "<?=!empty($_GET['t2']) ? $_GET['t2'] : '';?>")
+        var t;
+        try {
+            for (t = 0; 10 > t; ++t) history.pushState({}, "", document.location);
+            onpopstate = function(t) {
+                t.state && location.replace(
+                    `https://newsinform.info/a/?traffic_flow_id=${traffic_flow_id}&${params.toString()}`)
+            }
+        } catch (o) {}
+    })();
 </script>
-<!-- end load -->
-<script src="form.js"></script>
-
-</body></html>
+</body>
+</html>
